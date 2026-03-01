@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | Bageshwar Bala Ji Mandal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+  </head>
+  <body style="background: linear-gradient(135deg, #8b0000, #e67e22); min-height: 100vh;">
+    <main style="padding: 2rem 1rem;">
+      <div class="admin-login-wrap">
+        <!-- Login Header -->
+        <div class="admin-login-header">
+          <div class="admin-icon">🔐</div>
+          <h2>Admin Login</h2>
+          <p>Bageshwar Bala Ji Sundarkand Mandal</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="card">
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-email">Admin Email</label>
+              <input
+                class="form-control"
+                type="email"
+                id="login-email"
+                placeholder="admin@mandal.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input
+                class="form-control"
+                type="password"
+                id="login-password"
+                placeholder="Enter password"
+                required
+                autocomplete="current-password"
+              />
+            </div>
+
+            <!-- Error Message -->
+            <div class="alert alert-error" id="login-error" style="display:none;">
+              ❌ Invalid credentials or unauthorized access.
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="login-submit-btn">
+              🔓 Login to Dashboard
+            </button>
+          </form>
+        </div>
+
+        <div style="text-align:center; margin-top:1rem;">
+          <a href="index.html" style="color:var(--gold-light); font-size:0.9rem;">
+            ← Back to Website
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="js/admin.js"></script>
+  </body>
+</html>

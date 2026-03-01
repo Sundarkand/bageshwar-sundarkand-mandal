@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Darshan | Bageshwar Bala Ji Mandal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+  </head>
+  <body>
+    <div class="announcement-bar">
+      <span class="marquee-text" id="marquee-text">🚩 Loading... 🚩</span>
+    </div>
+
+    <header>
+      <div class="header-top">
+        <div class="header-logo-row">
+          <img src="assets/logo.png" alt="Logo" class="header-logo"
+               onerror="this.outerHTML='<span class=\'header-logo-fallback\'>🚩</span>'" />
+          <div class="header-title-block">
+            <div class="header-title">Bageshwar Bala Ji Sundarkand Mandal</div>
+            <div class="header-subtitle">Nagla Dallu</div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="upcoming.html">📅 Upcoming</a>
+        <a href="live.html" class="active">📡 Live</a>
+        <a href="sundarkand.html">📖 Sundarkand</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+        <a href="donation.html">🙏 Donation</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="admin-login.html">⚙️ Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2 class="section-title">Live Darshan & Path</h2>
+
+      <!-- Current Live -->
+      <div id="current-live-container">
+        <div class="loading-container">
+          <div class="spinner"></div>
+        </div>
+      </div>
+
+      <!-- Past Lives -->
+      <h3 style="color:var(--red-dark); margin:2rem 0 1rem; font-size:1.3rem;">
+        🎬 Past Live Recordings
+      </h3>
+      <div class="grid-3" id="past-lives-list">
+        <div class="loading-container" style="grid-column:1/-1;">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-mandal-name">Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu</div>
+      <div class="footer-links">
+        <a href="https://youtube.com/@BageshwarBalaJiMandal" target="_blank">▶️ Subscribe on YouTube</a>
+      </div>
+      <div class="footer-credit">Website Developed By: <strong>Aman Shankhdhar Ji</strong></div>
+    </footer>
+
+    <script type="module" src="js/live.js"></script>
+  </body>
+</html>

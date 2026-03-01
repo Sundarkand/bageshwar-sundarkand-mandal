@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sundarkand Path | Bageshwar Bala Ji Mandal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+  </head>
+  <body>
+    <div class="announcement-bar">
+      <span class="marquee-text" id="marquee-text">🚩 Loading... 🚩</span>
+    </div>
+
+    <header>
+      <div class="header-top">
+        <div class="header-logo-row">
+          <img src="assets/logo.png" alt="Logo" class="header-logo"
+               onerror="this.outerHTML='<span class=\'header-logo-fallback\'>🚩</span>'" />
+          <div class="header-title-block">
+            <div class="header-title">Bageshwar Bala Ji Sundarkand Mandal</div>
+            <div class="header-subtitle">Nagla Dallu</div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="upcoming.html">📅 Upcoming</a>
+        <a href="live.html">📡 Live</a>
+        <a href="sundarkand.html" class="active">📖 Sundarkand</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+        <a href="donation.html">🙏 Donation</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="admin-login.html">⚙️ Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2 class="section-title">Sundarkand Path</h2>
+
+      <!-- Reader Controls -->
+      <div class="sundarkand-controls">
+        <button class="ctrl-btn" id="btn-dark">🌙 Dark Mode</button>
+        <button class="ctrl-btn" id="btn-inc">A+ Larger</button>
+        <button class="ctrl-btn" id="btn-dec">A- Smaller</button>
+        <button class="ctrl-btn" id="btn-scroll">⬇️ Auto Scroll</button>
+        <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:nowrap;">
+          <label style="font-size:0.85rem; color:var(--text-main); font-weight:600;">Speed:</label>
+          <input type="range" id="scroll-speed" min="1" max="5" value="1"
+                 style="width:80px; accent-color:var(--saffron);" />
+        </div>
+      </div>
+
+      <!-- Reader Area -->
+      <div class="sundarkand-reader" id="sundarkand-reader">
+        <div class="sundarkand-content" id="sundarkand-content">
+          <div class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading Sundarkand...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-mandal-name">Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu</div>
+      <div class="footer-credit">Website Developed By: <strong>Aman Shankhdhar Ji</strong></div>
+    </footer>
+
+    <script type="module" src="js/sundarkand.js"></script>
+  </body>
+</html>
