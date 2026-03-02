@@ -31,56 +31,63 @@
         <a href="gallery.html">🖼️ Gallery</a>
         <a href="donation.html" class="active">🙏 Donation</a>
         <a href="about.html">ℹ️ About</a>
-        <a href="admin-login.html">⚙️ Admin</a>
+        
       </nav>
     </header>
 
     <main>
-      <h2 class="section-title">Donation & Seva</h2>
+      <h2 class="section-title">दान एवं सेवा (Donation & Seva)</h2>
 
       <!-- Total Verified Collection -->
       <div class="donation-total-box">
-        <div class="total-label">💛 Total Verified Collection</div>
+        <div class="total-label">💛 Total Verified Collection (कुल सत्यापित दान राशि)</div>
         <div class="total-amount" id="total-collection">Loading...</div>
-        <div class="total-sub">Only verified donations are shown</div>
+        <div class="total-sub">Only verified donations are shown (केवल सत्यापित दान ही यहाँ प्रदर्शित किए जाते हैं)</div>
       </div>
+      <p style="text-align:center; margin-bottom:1.5rem; font-size:1rem;">
+आपका छोटा सा सहयोग भी सुंदरकांड सेवा में अमूल्य योगदान है 🙏  
+जय श्री राम 🚩
+</p>
+      <p style="text-align:center; font-size:0.9rem; color:#666;">
+आपका दान पूर्ण पारदर्शिता के साथ मंडल की धार्मिक सेवाओं में उपयोग किया जाएगा।
+      </p>
 
       <!-- Donation Form -->
       <div class="card mb-4">
-        <h3 style="color:var(--red-dark); margin-bottom:1.2rem;">🙏 Make a Donation</h3>
+        <h3 style="color:var(--red-dark); margin-bottom:1.2rem;">🙏 सेवा हेतु दान करें (Make a Donation)</h3>
         <form id="donation-form">
           <div class="form-group">
-            <label for="donor-name">Full Name *</label>
-            <input class="form-control" type="text" id="donor-name" placeholder="e.g. Ramesh Sharma" required />
+            <label for="donor-name">Full Name (पूरा नाम)*</label>
+            <input class="form-control" type="text" id="donor-name" placeholder="e.g. Ramesh Sharma (जैसे – रमेश शर्मा)" required />
           </div>
           <div class="form-group">
-            <label for="donor-amount">Amount (₹) *</label>
-            <input class="form-control" type="number" id="donor-amount" placeholder="e.g. 1100" min="1" required />
+            <label for="donor-amount">Amount (दान राशि) (₹) *</label>
+            <input class="form-control" type="number" id="donor-amount" placeholder="e.g. 1100 (जैसे – 1100) " min="1" required />
           </div>
           <div class="form-group">
-            <label for="donor-note">Message / Note</label>
-            <textarea class="form-control" id="donor-note" rows="2" placeholder="Optional message for the Mandal..."></textarea>
+            <label for="donor-note">Message / संदेश (यदि कोई हो)</label>
+            <textarea class="form-control" id="donor-note" rows="2" placeholder="Optional message for the Mandal...(मंडल के लिए अपना संदेश लिखें (वैकल्पिक)...)"></textarea>
           </div>
           <div class="form-group">
-            <label for="donor-mode">Mode of Payment *</label>
+            <label for="donor-mode">Mode of Payment (भुगतान का माध्यम) *</label>
             <select class="form-control" id="donor-mode">
               <option value="Online">Online (UPI / QR Code)</option>
-              <option value="Offline">Offline (Cash)</option>
+              <option value="Offline">Offline (Cash/नकद)</option>
             </select>
           </div>
           <div class="form-check">
             <input type="checkbox" id="donor-anonymous" />
-            <label for="donor-anonymous">Keep my donation anonymous (name will not be shown publicly)</label>
+            <label for="donor-anonymous">मेरा दान गुप्त रखा जाए (Keep my donation anonymous)</label>
           </div>
           <button type="submit" class="btn btn-primary" id="submit-donation-btn">
-            Submit Donation 🙏
+            सेवा अर्पित करें (Submit Donation)🙏
           </button>
         </form>
       </div>
 
       <!-- Public Verified Donations List -->
       <h3 style="color:var(--red-dark); margin:2rem 0 1rem; font-size:1.3rem;">
-        💛 Recent Verified Donations
+        💛 Recent Verified Donations (हाल ही में सत्यापित दान)
       </h3>
       <div id="public-donations-list">
         <div class="loading-container">
@@ -100,17 +107,18 @@
           class="qr-image"
           onerror="this.outerHTML='<div class=\'qr-fallback\'>🔳</div>'"
         />
-        <div class="upi-id">UPI ID: mandal@ybl</div>
+        <div class="upi-id">UPI ID: subhashsharma9824-1@okicici</div>
         <p style="font-size:0.85rem; margin-bottom:1.5rem;">
-          After payment, click Done. Your donation will be verified by the admin shortly.
+          After payment, click Done. Your donation will be verified by the admin shortly. (भुगतान के बाद “Done” पर क्लिक करें।  
+आपका दान प्रशासन द्वारा सत्यापित होने के बाद प्रदर्शित किया जाएगा।)
         </p>
-        <button class="btn btn-primary" onclick="closeQrModal()">✔ Done — I Have Paid</button>
+        <button class="btn btn-primary" onclick="closeQrModal()">✔ Done — I Have Paid (भुगतान कर दिया)</button>
       </div>
     </div>
 
     <footer>
       <div class="footer-mandal-name">Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu</div>
-      <div class="footer-credit">Website Developed By: <strong>Aman Shankhdhar Ji</strong></div>
+      <div class="footer-credit">Website Developed By: <strong> <a href="admin-login.html">👨🏻‍💻 Aman Shankhdhar Ji 🛡️</a></strong></div>
     </footer>
 
     <script type="module" src="js/donation.js"></script>
