@@ -67,12 +67,96 @@
       </div>
 
       <!-- Contact Section -->
-      <div class="card mt-4" style="text-align:center; margin-top:2rem;">
-        <h3 style="color:var(--red-dark); margin-bottom:1rem;">📞 Contact Us</h3>
-        <p>📧 Email:<a href="mailto:balajisundarkandnagladallu@gmail.com">balajisundarkandnagladallu@gmail.com</a></p>
-        <p>▶️ YouTube: <a href="https://www.youtube.com/@balajisundarkand" target="_blank"
-             style="color:var(--saffron-dark); font-weight:600;">@BalaliSundarkand</a></p>
-      </div>
+<div class="card mt-4" 
+     style="text-align:center; margin-top:2rem; padding:20px;">
+
+  <h3 style="color:var(--red-dark); margin-bottom:1.5rem;">
+    📞 Contact Us
+  </h3>
+
+  <!-- Email Row -->
+  <div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:8px;
+        flex-wrap:wrap;
+        margin-bottom:12px;
+        word-break:break-word;
+      ">
+
+    <span style="font-size:22px;">📧</span>
+
+    <a href="mailto:balajisundarkandnagladallu@gmail.com"
+       style="
+         color:#6b2c2c;
+         text-decoration:none;
+         font-weight:600;
+         word-break:break-all;
+       ">
+       balajisundarkandnagladallu@gmail.com
+    </a>
+  </div>
+
+  <!-- YouTube Row -->
+  <div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:8px;
+        flex-wrap:wrap;
+      ">
+
+    <!-- Clean SVG YouTube Icon -->
+    <svg viewBox="0 0 120 90"
+         style="width:32px; height:auto; display:block;">
+      <rect width="120" height="90" rx="20" fill="red"/>
+      <polygon points="50,30 50,60 80,45" fill="white"/>
+    </svg>
+
+    <a href="https://www.youtube.com/@balajisundarkand"
+       target="_blank"
+       style="
+         color:var(--saffron-dark);
+         font-weight:600;
+         text-decoration:none;
+       ">
+       @BalaJiSundarkand
+    </a>
+  </div>
+  <!-- WhatsApp Group Row -->
+<div style="
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    ">
+
+  <!-- Clean WhatsApp SVG Icon -->
+  <svg viewBox="0 0 32 32"
+       style="width:30px; height:auto; display:block;">
+    <circle cx="16" cy="16" r="16" fill="#25D366"/>
+    <path fill="white" d="M22.5 18.3c-.3-.2-1.7-.8-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.3 3.9.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.6-.3z"/>
+  </svg>
+
+  <a href="https://chat.whatsapp.com/KI2jvB22PejKQcpKCHP8Ee?mode=gi_t"
+     target="_blank"
+     style="
+       color:#25D366;
+       font-weight:600;
+       text-decoration:none;
+       transition:0.3s;
+     "
+     onmouseover="this.style.textDecoration='underline'"
+     onmouseout="this.style.textDecoration='none'">
+     Join our WhatsApp Group
+  </a>
+
+</div>
+
+</div>
     </main>
 
     <footer>
@@ -167,7 +251,13 @@
                 <div class="member-photo-wrap">${photoHtml}</div>
                 <div class="member-name">${m.name}</div>
                 <div class="member-position">${m.position}</div>
-                ${m.contact ? `<div class="member-contact">📞 ${m.contact}</div>` : ""}
+                ${m.contact ? `
+  <div class="member-contact">
+    📞 <a href="tel:${m.contact.replace(/\s+/g,'')}" 
+          style="text-decoration:none; color:inherit;">
+          ${m.contact}
+        </a>
+  </div>` : ""}
               </div>`;
           });
           container.innerHTML = html;
