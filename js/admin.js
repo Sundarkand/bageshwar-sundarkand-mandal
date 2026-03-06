@@ -293,7 +293,11 @@ async function loadDonationsTab() {
            </button>`
         : `<span style="color:#27ae60; font-weight:bold;">✔ Done</span> `;
 
-      html += `
+            // यहाँ हमने Transaction ID का कॉलम (<td>) जोड़ दिया है
+      const txIdDisplay = d.transactionId ? `<strong style="color:#2980b9;">${d.transactionId}</strong>` : `<span style="color:#aaa;">—</span>`;
+      
+
+     html += `
         <tr>
           <td>${dateStr}</td>
           <td>${d.name || "N/A"} ${d.anonymous ? "<em style='color:#999;'>(Anon)</em>" : ""}</td>
@@ -301,6 +305,7 @@ async function loadDonationsTab() {
           <td>${d.note || "—"}</td>
           <td>${d.mode || "—"}</td>
           <td>${statusBadge}</td>
+          <td>${txIdDisplay}</td>
           <td>
             ${actionBtn}
             <button
