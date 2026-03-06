@@ -1,419 +1,283 @@
 <!DOCTYPE html>
 <html lang="hi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donation | Bageshwar Bala Ji Mandal</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" href="assets/logo.png" type="image/png" />
-  </head>
-  <body>
-    <div class="announcement-bar">
-      <span class="marquee-text" id="marquee-text">🚩 Loading... 🚩</span>
-    </div>
-
-    <header class="main-header">
-  <div class="header-container">
-    <div class="logo-title-group">
-      <img src="assets/logo.png" alt="Logo" class="site-logo">
-      <div class="title-text">
-        <h1>Bageshwar Bala Ji Mandal</h1>
-        <span>Nagla Dallu</span>
-      </div>
-    </div>
-    
-    <button class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="nav-menu" id="nav-menu">
-      <a href="index.html">🏠 Home</a>
-      <a href="upcoming.html">📅 Upcoming</a>
-      <a href="live.html">📡 Live</a>
-      <a href="sundarkand.html">📖 Sundarkand</a>
-      <a href="gallery.html">🖼️ Gallery</a>
-      <a href="donation.html" class="active">🙏 Donation</a>
-      <a href="about.html">ℹ️ About</a>
-    </nav>
-  </div>
-</header>
-
-<style>
-  .main-header {
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 0;
-  }
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  .logo-title-group { display: flex; align-items: center; gap: 10px; }
-  .site-logo { width: 45px; height: 45px; }
-  .title-text h1 { font-size: 1.1rem; color: #b30000; margin: 0; font-weight: 800; }
-  .title-text span { font-size: 0.8rem; color: #666; }
-
-  /* Navigation Desktop */
-  .nav-menu { display: flex; gap: 15px; }
-  .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
-  .nav-menu a.active, .nav-menu a:hover { background: #ffcc00; color: #b30000; }
-
-  /* Mobile Styles */
-  .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 5px; }
-  .menu-toggle span { width: 25px; height: 3px; background: #333; transition: 0.3s; }
-
-  @media (max-width: 768px) {
-    .menu-toggle { display: flex; }
-    .nav-menu {
-      position: absolute;
-      top: 100%;
-      right: 0;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donation | Bageshwar Bala Ji Mandal</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <style>
+    /* ---------------------------------------------------
+       Mobile-Friendly Header (UPMSP Style)
+    --------------------------------------------------- */
+    .main-header {
       background: #fff;
-      width: 200px;
-      flex-direction: column;
-      gap: 0;
-      box-shadow: -5px 5px 15px rgba(0,0,0,0.1);
-      display: none; /* Hidden by default */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 0;
     }
-    .nav-menu.active { display: flex; }
-    .nav-menu a { border-bottom: 1px solid #eee; padding: 15px; width: 100%; }
-  }
-</style>
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .logo-title-group { display: flex; align-items: center; gap: 10px; }
+    .site-logo { width: 45px; height: 45px; }
+    .title-text h1 { font-size: 1.1rem; color: #b30000; margin: 0; font-weight: 800; }
+    .title-text span { font-size: 0.8rem; color: #666; }
 
-<script>
-  // Mobile Menu Toggle Logic
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-</script>
+    .nav-menu { display: flex; gap: 15px; }
+    .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
+    .nav-menu a.active, .nav-menu a:hover { background: #ffcc00; color: #b30000; }
 
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 5px; }
+    .menu-toggle span { width: 25px; height: 3px; background: #333; transition: 0.3s; border-radius: 3px; }
 
-    <main>
-      <h2 class="section-title">दान एवं सेवा (Donation & Seva)</h2>
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      .nav-menu {
+        position: absolute; top: 100%; right: 0; background: #fff; width: 200px;
+        flex-direction: column; gap: 0; box-shadow: -5px 5px 15px rgba(0,0,0,0.1);
+        display: none;
+      }
+      .nav-menu.active { display: flex; }
+      .nav-menu a { border-bottom: 1px solid #eee; padding: 15px; width: 100%; }
+    }
 
-      <!-- Total Verified Collection -->
-      <div class="donation-total-box">
-        <div class="total-label">💛 Total Verified Collection (कुल सत्यापित दान राशि)</div>
-        <div class="total-amount" id="total-collection">Loading...</div>
-        <div class="total-sub">Only verified donations are shown (केवल सत्यापित दान ही यहाँ प्रदर्शित किए जाते हैं)</div>
-      </div>
-      <p style="text-align:center; margin-bottom:1.5rem; font-size:1rem;">
-आपका छोटा सा सहयोग भी सुंदरकांड सेवा में अमूल्य योगदान है 🙏  
-जय श्री राम 🚩
-</p>
-      <p style="text-align:center; font-size:0.9rem; color:#666;">
-आपका दान पूर्ण पारदर्शिता के साथ मंडल की धार्मिक सेवाओं में उपयोग किया जाएगा।
-      </p>
+    /* ---------------------------------------------------
+       Devotional Supporter Card (Glowing)
+    --------------------------------------------------- */
+    .supporter-summary-card {
+      background: linear-gradient(135deg, #fffcf0, #ffffff);
+      border: 2px solid #f1c40f;
+      box-shadow: 0 0 15px rgba(241, 196, 15, 0.4);
+      border-radius: 12px;
+      padding: 25px 15px;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 600px;
+      animation: glowPulse 3s infinite alternate;
+    }
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 8px rgba(241, 196, 15, 0.2); }
+      100% { box-shadow: 0 0 20px rgba(241, 196, 15, 0.6); }
+    }
+    .supporter-count { font-size: 2.8rem; color: #b30000; font-weight: 900; margin: 5px 0; }
+    .supporter-title { font-size: 1.1rem; color: #444; font-weight: 600; }
+    .supporter-subtitle { font-size: 0.9rem; color: #777; margin-bottom: 15px; }
+    .verified-badge { background: #e8f5e9; color: #2e7d32; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 10px; }
+    .thank-you-msg { font-size: 1rem; color: #b30000; font-style: italic; font-weight: 600; margin-top: 10px; }
 
-      <!-- Donation Form -->
-      <div class="card mb-4">
-        <h3 style="color:var(--red-dark); margin-bottom:1.2rem;">🙏 सेवा हेतु दान करें (Make a Donation)</h3>
-        <form id="donation-form">
-          <div class="form-group">
-            <label for="donor-name">Full Name (पूरा नाम)*</label>
-            <input class="form-control" type="text" id="donor-name" placeholder="e.g. Ramesh Sharma (जैसे – रमेश शर्मा)" required />
-          </div>
-          <div class="form-group">
-            <label for="donor-amount">Amount (दान राशि) (₹) *</label>
-            <input class="form-control" type="number" id="donor-amount" placeholder="e.g. 1100 (जैसे – 1100) " min="1" required />
-          </div>
-          <div class="form-group">
-            <label for="donor-note">Message / संदेश (यदि कोई हो)</label>
-            <textarea class="form-control" id="donor-note" rows="2" placeholder="Optional message for the Mandal...(मंडल के लिए अपना संदेश लिखें (वैकल्पिक)...)"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="donor-mode">Mode of Payment (भुगतान का माध्यम) *</label>
-            <select class="form-control" id="donor-mode">
-              <option value="Online">Online (UPI / QR Code)</option>
-              <option value="Offline">Offline (Cash/नकद)</option>
-            </select>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="donor-anonymous" />
-            <label for="donor-anonymous">मेरा दान गुप्त रखा जाए (Keep my donation anonymous)</label>
-          </div>
-          <button type="submit" class="btn btn-primary" id="submit-donation-btn">
-            सेवा अर्पित करें (Submit Donation)🙏
-          </button>
-        </form>
-      </div>
+    /* ---------------------------------------------------
+       QR Modal Enhancements
+    --------------------------------------------------- */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 2000;
+    }
+    .modal-overlay.show { display: flex !important; }
+    .modal-box { background: #fff; width: 90%; max-width: 400px; padding: 25px; border-radius: 15px; text-align: center; position: relative; max-height: 90vh; overflow-y: auto;}
+    .copy-icon-btn { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 6px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; }
+    .copy-icon-btn:hover { background: #eef5ff; border-color: #1a73e8; }
+    .copy-icon-btn svg { width: 18px; height: 18px; fill: #1a73e8; }
+    
+    .btn-pay-mobile { display: none; }
+    @media (max-width: 768px) { .btn-pay-mobile { display: block; } }
 
-      <!-- Public Verified Donations List -->
-      <h3 style="color:var(--red-dark); margin:2rem 0 1rem; font-size:1.3rem;">
-        💛 Recent Verified Donations (हाल ही में सत्यापित दान)
-      </h3>
-      <div id="public-donations-list">
-        <div class="loading-container">
-          <div class="spinner"></div>
+    /* ---------------------------------------------------
+       Ultimate WhatsApp Button
+    --------------------------------------------------- */
+    :root { --wa-color: #25D366; --wa-glow: rgba(37, 211, 102, 0.5); }
+    .wa-float-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; align-items: center; flex-direction: row-reverse; font-family: 'Segoe UI', sans-serif; }
+    .wa-main-btn { width: 60px; height: 60px; background-color: var(--wa-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; animation: wa-bounce 3s ease-in-out infinite; }
+    @keyframes wa-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .wa-main-btn::before { content: ""; position: absolute; width: 100%; height: 100%; background-color: var(--wa-color); border-radius: 50%; z-index: -1; animation: wa-ripple 2s infinite; }
+    @keyframes wa-ripple { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.6); opacity: 0; } }
+    .wa-main-btn svg { width: 32px; height: 32px; fill: white; }
+    .wa-label { margin-right: 15px; background: #333; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 13px; opacity: 0; visibility: hidden; transform: translateX(15px); transition: all 0.3s ease; white-space: nowrap; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .wa-float-container:hover .wa-label { opacity: 1; visibility: visible; transform: translateX(0); }
+    .wa-float-container:hover .wa-main-btn { transform: scale(1.1); box-shadow: 0 12px 30px var(--wa-glow); }
+    @media (max-width: 768px) { .wa-float-container { bottom: 20px; right: 20px; } .wa-main-btn { width: 55px; height: 55px; } .wa-label { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="announcement-bar">
+    <span class="marquee-text" id="marquee-text">🚩 Loading... 🚩</span>
+  </div>
+
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo-title-group">
+        <img src="assets/logo.png" alt="Logo" class="site-logo" onerror="this.outerHTML='<span class=\'header-logo-fallback\'>🚩</span>'">
+        <div class="title-text">
+          <h1>Bageshwar Bala Ji Mandal</h1>
+          <span>Nagla Dallu</span>
         </div>
       </div>
-    </main>
+      
+      <button class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
 
-    <!-- QR Code Modal -->
-    <style>
-  .modal-box {
-    max-width: 400px;
-    padding: 20px;
-    text-align: center;
-  }
-  .upi-details-container {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 10px;
-    margin: 15px 0;
-    text-align: left;
-    border: 1px dashed #ccc;
-  }
-  .upi-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-  }
-  .upi-row strong { color: #333; }
-  
-  .copy-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    transition: transform 0.2s;
-  }
-  .copy-btn:active { transform: scale(0.9); }
-  .copy-btn svg { fill: #666; width: 18px; height: 18px; }
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="upcoming.html">📅 Upcoming</a>
+        <a href="live.html">📡 Live</a>
+        <a href="sundarkand.html">📖 Sundarkand</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+        <a href="donation.html" class="active">🙏 Donation</a>
+        <a href="about.html">ℹ️ About</a>
+      </nav>
+    </div>
+  </header>
 
-  .qr-image {
-    width: 200px;
-    height: 200px;
-    margin: 10px auto;
-    display: block;
-    border: 5px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
+  <main>
+    <h2 class="section-title" style="margin-top: 20px;">दान एवं सेवा (Donation & Seva)</h2>
 
-  .action-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  .btn-pay {
-    background-color: #1a73e8; /* GPay Blue */
-    color: white;
-    flex: 1;
-  }
-  .btn-done {
-    background-color: #28a745; /* Success Green */
-    color: white;
-    flex: 1;
-  }
-  .download-qr {
-    font-size: 0.8rem;
-    color: #1a73e8;
-    text-decoration: underline;
-    cursor: pointer;
-    background: none;
-    border: none;
-    margin-bottom: 10px;
-  }
-</style>
-
-<div class="modal-overlay" id="qr-modal" style="display:none;">
-  <div class="modal-box">
-    <h3>📲 Scan & Pay</h3>
-    
-    <img src="assets/qr-code.png" alt="UPI QR Code" class="qr-image" id="qr-img-download" />
-    
-    <button class="download-qr" onclick="downloadQR()">📥 Save QR Code</button>
-
-    <div class="upi-details-container">
-      <div class="upi-row">
-        <span><strong>UPI ID:</strong> <span id="copy-upi-id">subhashsharma9824-1@okicici</span></span>
-        <button class="copy-btn" onclick="copyText('copy-upi-id')">
-          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-        </button>
-      </div>
-      <div class="upi-row">
-        <span><strong>UPI No:</strong> <span id="copy-upi-no">7983274853</span></span>
-        <button class="copy-btn" onclick="copyText('copy-upi-no')">
-          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-        </button>
-      </div>
+    <div class="supporter-summary-card">
+      <div class="verified-badge">✔ Verified by Mandal Committee (मंडल समिति द्वारा सत्यापित)</div>
+      <div class="supporter-title">👥 Supported by <br> <span class="supporter-count" id="supporter-count-display">--</span> <br> Devotees</div>
+      <div class="supporter-subtitle" id="supporter-hindi-display">-- भक्तों का सहयोग</div>
+      <div class="thank-you-msg">🙏 Thank you for supporting the Sundarkand<br>सुन्दरकाण्ड आयोजन में सहयोग हेतु धन्यवाद 🙏</div>
     </div>
 
-    <div class="action-buttons">
-      <button class="btn btn-pay" onclick="payNow()">🚀 Pay Now</button>
-      <button class="btn btn-done" onclick="closeQrModal()">✔ Done</button>
+    <p style="text-align:center; margin-bottom:1.5rem; font-size:1rem;">
+      आपका छोटा सा सहयोग भी सुंदरकांड सेवा में अमूल्य योगदान है 🙏  
+      जय श्री राम 🚩
+    </p>
+
+    <div class="card mb-4">
+      <h3 style="color:var(--red-dark); margin-bottom:1.2rem;">🙏 सेवा हेतु दान करें (Make a Donation)</h3>
+      <form id="donation-form">
+        <div class="form-group">
+          <label for="donor-name">Full Name (पूरा नाम)*</label>
+          <input class="form-control" type="text" id="donor-name" placeholder="e.g. Ramesh Sharma (जैसे – रमेश शर्मा)" required />
+        </div>
+        <div class="form-group">
+          <label for="donor-amount">Amount (दान राशि) (₹) *</label>
+          <input class="form-control" type="number" id="donor-amount" placeholder="e.g. 1100 (जैसे – 1100) " min="1" required />
+        </div>
+        <div class="form-group">
+          <label for="donor-note">Message / संदेश (यदि कोई हो)</label>
+          <textarea class="form-control" id="donor-note" rows="2" placeholder="Optional message for the Mandal...(मंडल के लिए अपना संदेश लिखें (वैकल्पिक)...)"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="donor-mode">Mode of Payment (भुगतान का माध्यम) *</label>
+          <select class="form-control" id="donor-mode">
+            <option value="Online">Online (UPI / QR Code)</option>
+            <option value="Offline">Offline (Cash/नकद)</option>
+          </select>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="donor-anonymous" />
+          <label for="donor-anonymous">मेरा दान गुप्त रखा जाए (Keep my donation anonymous)</label>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-donation-btn">
+          सेवा अर्पित करें (Submit Donation)🙏
+        </button>
+      </form>
+    </div>
+
+    <h3 style="color:var(--red-dark); margin:2rem 0 1rem; font-size:1.3rem;">
+      💛 Recent Verified Donations (हाल ही में सत्यापित दान)
+    </h3>
+    <div id="public-donations-list">
+      <div class="loading-container">
+        <div class="spinner"></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="qr-modal-container">
+    <div class="modal-box">
+      <h3 style="color:#b30000; margin-bottom:10px;">📲 भुगतान करें (Pay Now)</h3>
+      <p style="font-size:0.9rem; color:#555; margin-bottom:10px;">कृपया <strong id="qr-amount-display"></strong> का भुगतान करें</p>
+      
+      <img src="assets/qr-code.png" alt="QR" id="mandal-qr" style="width:200px; margin:5px auto 10px; display:block; border-radius:10px; border:2px solid #eee;">
+      
+      <button onclick="downloadQR()" style="color:#1a73e8; background:none; border:none; cursor:pointer; margin-bottom:15px; font-weight:600; font-size:0.85rem;">
+        📥 Save QR Code (QR कोड सेव करें)
+      </button>
+
+      <div style="background:#f8f9fa; padding:12px; border-radius:10px; text-align:left; margin-bottom:15px; border:1px dashed #ccc;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <div>
+            <span style="font-size:0.75rem; color:#666; display:block;">UPI ID</span>
+            <strong id="val-upi-id" style="font-size:0.9rem;">subhashsharma9824-2@oksbi</strong>
+          </div>
+          <button class="copy-icon-btn" onclick="copyValue('val-upi-id')">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          </button>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <span style="font-size:0.75rem; color:#666; display:block;">UPI Number / Phone</span>
+            <strong id="val-upi-no">+91 79832 74853</strong>
+          </div>
+          <button class="copy-icon-btn" onclick="copyValue('val-upi-no')">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div style="margin-bottom:15px; text-align:left;">
+        <label for="tx-id" style="font-size:0.85rem; color:#444; font-weight:600; display:block; margin-bottom:5px;">Transaction ID / Ref No. (वैकल्पिक)</label>
+        <input type="text" id="tx-id" placeholder="Enter Ref No. after payment" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; box-sizing:border-box;">
+      </div>
+
+      <div style="display:flex; gap:10px;">
+        <button class="btn-pay-mobile" onclick="triggerUPI()" style="background:#1a73e8; color:white; flex:1; padding:12px; border-radius:8px; border:none; font-weight:bold; cursor:pointer;">🚀 App से पे करें</button>
+        <button onclick="closeMyModal()" style="background:#28a745; color:white; flex:1; padding:12px; border-radius:8px; border:none; font-weight:bold; cursor:pointer;">Done (हो गया) ✔</button>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  // Function to Copy Text
-  function copyText(elementId) {
-    const text = document.getElementById(elementId).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("Copied: " + text);
-    });
-  }
+  <footer>
+    <div class="footer-mandal-name">Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu</div>
+    <div class="footer-credit">Website Developed By: <strong> <a href="admin-login.html" style="color:inherit;">👨🏻‍💻 Aman Shankhdhar Ji 🛡️</a></strong></div>
+  </footer>
 
-  // Function to Trigger Payment Apps
-  function payNow() {
-    const amount = document.getElementById('donor-amount').value;
-    const name = "Bageshwar Bala Ji Mandal";
-    const upiId = "subhashsharma9824-1@okicici";
-    
-    // UPI Intent Link
-    const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
-    
-    window.location.href = upiUrl;
-  }
-
-  // Function to Download QR
-  function downloadQR() {
-    const link = document.createElement('a');
-    link.href = document.getElementById('qr-img-download').src;
-    link.download = 'Mandal-Donation-QR.png';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-</script>
-
-
-    <footer>
-      <div class="footer-mandal-name">Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu</div>
-      <div class="footer-credit">Website Developed By: <strong> <a href="admin-login.html">👨🏻‍💻 Aman Shankhdhar Ji 🛡️</a></strong></div>
-    </footer>
-
-    <script type="module" src="js/donation.js"></script>
-  <style>
-    :root {
-        --wa-color: #25D366;
-        --wa-glow: rgba(37, 211, 102, 0.5);
-    }
-
-    .wa-float-container {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        flex-direction: row-reverse; /* Places label to the left of the button */
-        font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    }
-
-    /* The Main Button */
-    .wa-main-btn {
-        width: 65px;
-        height: 65px;
-        background-color: var(--wa-color);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
-        text-decoration: none;
-        /* Animation applied here so it never stops */
-        animation: wa-bounce 3s ease-in-out infinite;
-    }
-
-    /* Floating Animation */
-    @keyframes wa-bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-12px); }
-    }
-
-    /* The Ripple Effect (Glow Pulse) */
-    .wa-main-btn::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: var(--wa-color);
-        border-radius: 50%;
-        z-index: -1;
-        animation: wa-ripple 2s infinite;
-    }
-
-    @keyframes wa-ripple {
-        0% { transform: scale(1); opacity: 0.8; }
-        100% { transform: scale(1.6); opacity: 0; }
-    }
-
-    /* SVG Icon Style */
-    .wa-main-btn svg {
-        width: 35px;
-        height: 35px;
-        fill: white;
-    }
-
-    /* The "Hidden" Label (Tooltip) */
-    .wa-label {
-        margin-right: 15px;
-        background: #333;
-        color: white;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-weight: 600;
-        font-size: 13px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(15px);
-        transition: all 0.3s ease;
-        white-space: nowrap;
-        pointer-events: none;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    /* Hover State: Reveal Label and Scale Button */
-    .wa-float-container:hover .wa-label {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(0);
-    }
-
-    .wa-float-container:hover .wa-main-btn {
-        transform: scale(1.1);
-        box-shadow: 0 12px 30px var(--wa-glow);
-    }
-
-    /* Mobile Optimization: Simpler look on phones */
-    @media (max-width: 768px) {
-        .wa-float-container { bottom: 20px; right: 20px; }
-        .wa-main-btn { width: 60px; height: 60px; }
-        .wa-label { display: none; } /* Labels can clutter small mobile screens */
-    }
-</style>
-
-<div class="wa-float-container">
-    <a href="https://chat.whatsapp.com/KI2jvB22PejKQcpKCHP8Ee" 
-       target="_blank" 
-       rel="noopener" 
-       class="wa-main-btn">
-        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.4-11.3 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-        </svg>
+  <div class="wa-float-container">
+    <a href="https://chat.whatsapp.com/KI2jvB22PejKQcpKCHP8Ee" target="_blank" rel="noopener" class="wa-main-btn">
+      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.4-11.3 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
-
     <span class="wa-label">Join WhatsApp Group</span>
-</div>
+  </div>
+
+  <script>
+    // Header Menu Logic
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('nav-menu').classList.toggle('active');
+    });
+
+    // Modal Copy and Download UI Logic
+    window.copyValue = (id) => {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => alert("Copied: " + text));
+    };
     
-  </body>
+    window.triggerUPI = function() {
+      const amount = document.getElementById('donor-amount').value || "0";
+      const upiUrl = `upi://pay?pa=subhashsharma9824-2@oksbi&pn=BageshwarBalaJiMandal&am=${amount}&cu=INR`;
+      window.location.href = upiUrl;
+    };
+
+    window.downloadQR = function() {
+      const qrImg = document.getElementById('mandal-qr');
+      const link = document.createElement('a');
+      link.href = qrImg.src;
+      link.download = 'Bageshwar-Mandal-Donation-QR.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+  </script>
+
+  <script type="module" src="js/donation.js"></script>
+</body>
 </html>
