@@ -97,25 +97,138 @@
     </main>
 
     <!-- QR Code Modal -->
-    <div class="modal-overlay" id="qr-modal">
-      <div class="modal-box">
-        <h3>📲 Scan UPI QR to Pay</h3>
-        <p>Please pay <strong id="qr-amount">the amount</strong> using UPI and wait for admin verification.</p>
-        <p>कृपया <strong id="qr-amount"> निर्धारित राशि</strong> UPI द्वारा भुगतान करें और सत्यापन की प्रतीक्षा करें।</p>
-        <img
-          src="assets/qr-code.png"
-          alt="UPI QR Code"
-          class="qr-image"
-          onerror="this.outerHTML='<div class=\'qr-fallback\'>🔳</div>'"
-        />
-        <div class="upi-id">UPI ID: subhashsharma9824-1@okicici</div>
-        <p style="font-size:0.85rem; margin-bottom:1.5rem;">
-          After payment, click Done. Your donation will be verified by the admin shortly. (भुगतान के बाद “Done” पर क्लिक करें।  
-आपका दान प्रशासन द्वारा सत्यापित होने के बाद प्रदर्शित किया जाएगा।)
-        </p>
-        <button class="btn btn-primary" onclick="closeQrModal()">✔ Done — I Have Paid (भुगतान कर दिया)</button>
+    <style>
+  .modal-box {
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+  }
+  .upi-details-container {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    text-align: left;
+    border: 1px dashed #ccc;
+  }
+  .upi-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  .upi-row strong { color: #333; }
+  
+  .copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+  .copy-btn:active { transform: scale(0.9); }
+  .copy-btn svg { fill: #666; width: 18px; height: 18px; }
+
+  .qr-image {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    display: block;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .btn-pay {
+    background-color: #1a73e8; /* GPay Blue */
+    color: white;
+    flex: 1;
+  }
+  .btn-done {
+    background-color: #28a745; /* Success Green */
+    color: white;
+    flex: 1;
+  }
+  .download-qr {
+    font-size: 0.8rem;
+    color: #1a73e8;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-bottom: 10px;
+  }
+</style>
+
+<div class="modal-overlay" id="qr-modal" style="display:none;">
+  <div class="modal-box">
+    <h3>📲 Scan & Pay</h3>
+    
+    <img src="assets/qr-code.png" alt="UPI QR Code" class="qr-image" id="qr-img-download" />
+    
+    <button class="download-qr" onclick="downloadQR()">📥 Save QR Code</button>
+
+    <div class="upi-details-container">
+      <div class="upi-row">
+        <span><strong>UPI ID:</strong> <span id="copy-upi-id">subhashsharma9824-1@okicici</span></span>
+        <button class="copy-btn" onclick="copyText('copy-upi-id')">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        </button>
+      </div>
+      <div class="upi-row">
+        <span><strong>UPI No:</strong> <span id="copy-upi-no">9824XXXXXX</span></span>
+        <button class="copy-btn" onclick="copyText('copy-upi-no')">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        </button>
       </div>
     </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-pay" onclick="payNow()">🚀 Pay Now</button>
+      <button class="btn btn-done" onclick="closeQrModal()">✔ Done</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to Copy Text
+  function copyText(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Copied: " + text);
+    });
+  }
+
+  // Function to Trigger Payment Apps
+  function payNow() {
+    const amount = document.getElementById('donor-amount').value;
+    const name = "Bageshwar Bala Ji Mandal";
+    const upiId = "subhashsharma9824-1@okicici";
+    
+    // UPI Intent Link
+    const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+    
+    window.location.href = upiUrl;
+  }
+
+  // Function to Download QR
+  function downloadQR() {
+    const link = document.createElement('a');
+    link.href = document.getElementById('qr-img-download').src;
+    link.download = 'Mandal-Donation-QR.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
+
 
     <footer>
       <div class="footer-mandal-name">Bageshwar Bala Ji Sundarkand Mandal Nagla Dallu</div>
