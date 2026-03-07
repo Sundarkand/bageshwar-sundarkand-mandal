@@ -261,11 +261,18 @@
       navigator.clipboard.writeText(text).then(() => alert("Copied: " + text));
     };
     
-    window.triggerUPI = function() {
-      const amount = document.getElementById('donor-amount').value || "0";
-      const upiUrl = `upi://pay?pa=subhashsharma9824-2@oksbi&pn=BageshwarBalaJiMandal&am=${amount}&cu=INR`;
+        window.triggerUPI = function() {
+      const amountInput = document.getElementById('donor-amount').value || "0";
+      
+      // Amount को 2 decimal places (जैसे 100.00) में बदलना बहुत ज़रूरी है
+      const formattedAmount = parseFloat(amountInput).toFixed(2); 
+      
+      // Spaces को %20 से replace किया गया है ताकि लिंक टूटे नहीं
+      const upiUrl = `upi://pay?pa=subhashsharma9824-2@oksbi&pn=Bageshwar%20Bala%20Ji%20Mandal&am=${formattedAmount}&cu=INR`;
+      
       window.location.href = upiUrl;
     };
+
 
     window.downloadQR = function() {
       const qrImg = document.getElementById('mandal-qr');
