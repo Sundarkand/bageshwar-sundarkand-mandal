@@ -156,13 +156,14 @@ async function loadCurrentLive() {
         ">
           <div style="font-size: 5rem; margin-bottom: 1rem;">📡</div>
           <h3 style="color: var(--gold); font-size: 1.6rem; margin-bottom: 0.5rem;">
-            Live Streaming Will Start Soon
+            Live Streaming Will Start Soon (लाइव स्ट्रीमिंग जल्द ही शुरू होगी।)
           </h3>
           <p style="color: #bdc3c7; font-size: 1rem; margin-bottom: 1.5rem;">
-            Subscribe to our YouTube channel and press the 🔔 bell icon to get notified!
+            Subscribe to our YouTube channel and press the 🔔 bell icon to get notified! 
+            (हमारे यूट्यूब चैनल को सब्सक्राइब करें और सूचित रहने के लिए बेल आइकन दबाएं!)
           </p>
           <a
-            href="https://www.youtube.com"
+            href="https://www.youtube.com/@BalaJiSundarkand?sub_confirmation=1"
             target="_blank"
             rel="noopener"
             style="
