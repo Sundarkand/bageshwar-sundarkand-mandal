@@ -48,6 +48,7 @@ async function loadEvents() {
       container.innerHTML = `
         <div class="alert alert-info">
           📅 No upcoming events at the moment. Stay tuned!
+          (फिलहाल कोई आगामी कार्यक्रम नहीं है। भविष्य में आने वाली जानकारी के लिए हमारे साथ जुड़े रहें!)
         </div>`;
       return;
     }
