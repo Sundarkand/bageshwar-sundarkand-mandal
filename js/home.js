@@ -7,6 +7,9 @@ import {
   doc,
   getDoc,
   collection,
+  getDocs,
+  query,
+  where,
   getCountFromServer,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
@@ -14,6 +17,7 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
   loadAnnouncement();
   loadHomeStats();
+  loadRecentSupporters(); // ← ADD THIS
 });
 
 // ── Load scrolling announcement from Firestore ──
@@ -48,20 +52,5 @@ async function loadHomeStats() {
     const el = document.getElementById("stat-members");
     if (el) el.textContent = membersSnap.data().count;
   } catch (e) {}
-
-  // Verified donations total
-  try {
-    const { query, where, getDocs } = await import(
-      "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"
-    );
-    const q = query(
-      collection(db, "donations"),
-      where("status", "==", "verified")
-    );
-    const snap = await getDocs(q);
-    let total = 0;
-    snap.forEach((d) => (total += d.data().amount));
-    const el = document.getElementById("stat-collection");
-    if (el) el.textContent = "₹" + total.toLocaleString("en-IN");
-  } catch (e) {}
+  
 }
