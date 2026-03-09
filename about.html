@@ -6,81 +6,60 @@
     <title>About | Bageshwar Bala Ji Mandal</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="assets/logo.png" type="image/png" />
- <style>
-    /* ---------------------------------------------------
-       Mobile-Friendly Header (UPMSP Style)
-    --------------------------------------------------- */
-    .main-header {
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 10px 0;
-    }
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-    .logo-title-group { display: flex; align-items: center; gap: 10px; }
-    .site-logo { width: 45px; height: 45px; }
-    .title-text h1 { font-size: 1.1rem; color: #b30000; margin: 0; font-weight: 800; }
-    .title-text span { font-size: 0.8rem; color: #666; }
+    </head>
+  <body>
+    <!-- ─── ANNOUNCEMENT BAR ─── -->
+    <div class="announcement-bar">
+      <span class="marquee-text" id="marquee-text">
+      🚩 जय श्री राम! बागेश्वर बालाजी सुंदरकांड मंडल, नगला डल्लू में आपका स्वागत है 🚩
+      </span>
+    </div>
+    
+<!-- ─── HEADER ─── -->
+<header>
+  <!-- Banner Image -->
+  <img
+    src="assets/hanuman-banner.jpg"
+    alt="Hanuman Banner"
+    class="header-banner-img"
+    onerror="this.style.display='none'"
+  />
 
-    .nav-menu { display: flex; gap: 15px; }
-    .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
-    .nav-menu a.active, .nav-menu a:hover { background: #ffcc00; color: #b30000; }
+  <!-- Logo Row + Hamburger -->
+  <div class="header-top">
+    <!-- Logo + Title (always in one row) -->
+    <div class="header-logo-row">
+      <img
+        src="assets/logo.png"
+        alt="Mandal Logo"
+        class="header-logo"
+        onerror="this.outerHTML='<span class=\'header-logo-fallback\'>🚩</span>'"
+      />
+      <div class="header-title-block">
+        <div class="header-title">Bageshwar Bala Ji Sundarkand Mandal</div>
+        <div class="header-subtitle">नगला डल्लू — आधिकारिक धार्मिक Web Portal</div>
+      </div>
+    </div>
 
-    .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 5px; }
-    .menu-toggle span { width: 25px; height: 3px; background: #333; transition: 0.3s; border-radius: 3px; }
-
-    @media (max-width: 768px) {
-      .menu-toggle { display: flex; }
-      .nav-menu {
-        position: absolute; top: 100%; right: 0; background: #fff; width: 200px;
-        flex-direction: column; gap: 0; box-shadow: -5px 5px 15px rgba(0,0,0,0.1);
-        display: none;
-      }
-      .nav-menu.active { display: flex; }
-      .nav-menu a { border-bottom: 1px solid #eee; padding: 15px; width: 100%; }
-    }
-</style>
-
-</head>
-<body>
-  <div class="announcement-bar">
-    <span class="marquee-text" id="marquee-text">🚩 Loading... 🚩</span>
+    <!-- Hamburger Button (only visible on mobile) -->
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 
-  <header class="main-header">
-    <div class="header-container">
-      <div class="logo-title-group">
-        <img src="assets/logo.png" alt="Logo" class="site-logo" onerror="this.outerHTML='<span class=\'header-logo-fallback\'>🚩</span>'">
-        <div class="title-text">
-          <h1>Bageshwar Bala Ji Mandal</h1>
-          <span>Nagla Dallu</span>
-        </div>
-      </div>
-      
-      <button class="menu-toggle" id="menu-toggle">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="nav-menu" id="nav-menu">
-        <a href="index.html">🏠 Home</a>
-        <a href="upcoming.html">📅 Upcoming</a>
-        <a href="live.html">📡 Live</a>
-        <a href="sundarkand.html">📖 Sundarkand</a>
-        <a href="gallery.html">🖼️ Gallery</a>
-        <a href="donation.html">🙏 Donation</a>
-        <a href="about.html"class="active">ℹ️ About</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <a href="index.html">🏠 Home</a>
+    <a href="upcoming.html">📅 Upcoming</a>
+    <a href="live.html">🔴 Live</a>
+    <a href="sundarkand.html">📖 Sundarkand</a>
+    <a href="gallery.html">🖼️ Gallery</a>
+    <a href="donation.html">🙏 Donation</a>
+    <a href="about.html"class="active">ℹ️ About</a>
+  </nav>
+</header>
 
     <main>
       <h2 class="section-title">About Our Mandal</h2>
@@ -177,7 +156,7 @@
     <polygon points="50,30 50,60 80,45" fill="white"/>
   </svg>
 
-  <a href="https://www.youtube.com/@balajisundarkand"
+  <a href="https://www.youtube.com/@BalaJiSundarkand?sub_confirmation=1"
      target="_blank"
      style="
         color:#ff0000;
@@ -296,7 +275,7 @@
   </a>
 
   <!-- YouTube -->
-  <a href="https://www.youtube.com/@balajisundarkand" target="_blank"
+  <a href="https://www.youtube.com/@BalaJiSundarkand?sub_confirmation=1" target="_blank"
      style="
        display:flex;
        align-items:center;
@@ -377,5 +356,25 @@
         }
       })();
     </script>
+    <!-- Hamburger Menu Script -->
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mainNav = document.getElementById('main-nav');
+
+  if (hamburgerBtn && mainNav) {
+    hamburgerBtn.addEventListener('click', function () {
+      this.classList.toggle('open');
+      mainNav.classList.toggle('mobile-open');
+    });
+
+    // Close menu when any nav link is clicked
+    mainNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        hamburgerBtn.classList.remove('open');
+        mainNav.classList.remove('mobile-open');
+      });
+    });
+  }
+</script>
   </body>
 </html>
