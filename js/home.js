@@ -54,3 +54,74 @@ async function loadHomeStats() {
   } catch (e) {}
   
 }
+
+// ─────────────────────────────────────────────
+// Recent Supporters — Last 3 Verified Donors
+// ─────────────────────────────────────────────
+async function loadRecentSupporters() {
+  const listEl = document.getElementById("supporters-list");
+  if (!listEl) return;
+
+  try {
+    // Only where() — no orderBy() to avoid Firebase Index Error
+    const q = query(
+      collection(db, "donations"),
+      where("status", "==", "verified")
+    );
+
+    const snapshot = await getDocs(q);
+
+    // Collect into array
+    let donations = [];
+    snapshot.forEach((docSnap) => {
+      donations.push(docSnap.data());
+    });
+
+    // Sort newest first using JavaScript
+    donations.sort((a, b) => {
+      const tA = a.date && a.date.seconds ? a.date.seconds : 0;
+      const tB = b.date && b.date.seconds ? b.date.seconds : 0;
+      return tB - tA;
+    });
+
+    // Take only latest 3
+    const top3 = donations.slice(0, 3);
+
+    // Empty state
+    if (top3.length === 0) {
+      listEl.innerHTML = `
+        <div class="supporters-empty">
+          🙏 अभी तक कोई सहयोगी नहीं।<br>
+          <span style="font-size:0.8rem; color:#aaa;">No supporters yet. Be the first!</span>
+        </div>`;
+      return;
+    }
+
+    // Build cards
+    let html = "";
+    top3.forEach((d) => {
+      // Name logic
+      const isAnon = d.anonymous || !d.name || d.name.trim() === "";
+      const displayName = isAnon ? "Anonymous / गुमनाम" : d.name.trim();
+      const avatarChar = isAnon ? "🙏" : d.name.trim().charAt(0).toUpperCase();
+
+      html += `
+        <div class="supporter-item">
+          <div class="supporter-avatar">${avatarChar}</div>
+          <div>
+            <div class="supporter-name">• ${displayName}</div>
+            <div class="supporter-tag">सहयोगी • Supporter</div>
+          </div>
+        </div>`;
+    });
+
+    listEl.innerHTML = html;
+
+  } catch (err) {
+    console.error("Supporters error:", err);
+    listEl.innerHTML = `
+      <div class="supporters-empty">
+        ⚠️ लोड नहीं हो सका।
+      </div>`;
+  }
+}
